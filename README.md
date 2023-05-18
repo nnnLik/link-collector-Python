@@ -28,6 +28,11 @@ To run the bot locally, follow these steps:
 2. Specify your Telegram API token and MongoDB connection details in the `config.py` file.
 3. Start the bot by running `python main.py -token <telegram_token> -mongo <mongo_url> -db <mongo_db>`.
 
+## TODO
+- [ ] docker
+- [ ] task scheduller
+- [ ] async
+
 ## Contribution
 
 Contributions to the LinkCollector Bot are welcome! If you have any ideas, bug reports, or feature requests, please submit them through the issue tracker or submit a pull request.
