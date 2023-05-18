@@ -26,7 +26,7 @@ To run the bot locally, follow these steps:
 
 1. Install the dependencies by running `pip install -r requirements.txt`.
 2. Specify your Telegram API token and MongoDB connection details in the `config.py` file.
-3. Start the bot by running `python main.py`.
+3. Start the bot by running `python main.py -token <telegram_token> -mongo <mongo_url> -db <mongo_db>`.
 
 ## Contribution
 
