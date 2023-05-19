@@ -21,11 +21,11 @@ def register_handlers(bot):
         existing_user = mongodb.users.find_one({"user_id": user_id})
         if existing_user:
             logger.info(f"User with id {user_id} already exists.")
-            bot.send_chat_action(message.chat.id, ALREADY_REGISTERED_MESSAGE)
+            bot.reply_to(message, ALREADY_REGISTERED_MESSAGE)
         else:
             mongodb.users.insert_one({"user_id": user_id})
             logger.info(f"User with id {user_id} created.")
-            bot.send_chat_action(message.chat.id, WELCOME_MESSAGE)
+            bot.reply_to(message, WELCOME_MESSAGE)
 
     @bot.message_handler(commands=["resetlinks"])
     def reset_links(message):
@@ -36,7 +36,7 @@ def register_handlers(bot):
 
     @bot.message_handler(commands=["help"])
     def help(message):
-        bot.send_chat_action(message.chat.id, HELP_MESSAGE)
+        bot.reply_to(message, HELP_MESSAGE)
 
     @bot.message_handler(func=lambda message: True)
     def process_message(message):
@@ -54,8 +54,7 @@ def register_handlers(bot):
                 else:
                     mongodb.links.insert_one({"user_id": user_id, "link": link})
 
-            logger.info(f"Links were found and saved in the database.")
             bot.reply_to(message, LINKS_FOUND_SUCCESS_MESSAGE)
         else:
-            logger.info(f"Links were not found.")
             bot.reply_to(message, LINKS_NOT_FOUND_MESSAGE)
+

@@ -1,9 +1,11 @@
+import threading
 import argparse
 import logging
 import telebot
 
 from src.configs.mongodb import mongodb
 from src.handlers.handlers import register_handlers
+from src.handlers.services.services import send_links_periodically
 
 logger = logging.getLogger(__name__)
 
@@ -18,6 +20,7 @@ def main():
     logger.info("Server started")
 
     register_handlers(bot)
+    threading.Thread(target=send_links_periodically, args=(bot,)).start()
 
     bot.infinity_polling()
 
