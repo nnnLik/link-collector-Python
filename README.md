@@ -30,7 +30,7 @@ To run the bot locally, follow these steps:
 
 ## TODO
 - [ ] docker
-- [ ] task scheduller
+- [x] task scheduller
 - [ ] async
 
 ## Contribution
